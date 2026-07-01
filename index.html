@@ -177,7 +177,7 @@
 
         // --- ENGINE LOGIC ---
         function initApp() {
-            const saved = localStorage.getItem('app_state_stable_v4');
+            const saved = localStorage.getItem('app_state_stable_v2');
             if (saved) { 
                 const parsed = JSON.parse(saved);
                 if (parsed.tabs) {
@@ -194,7 +194,7 @@
         }
 
         function saveState() {
-            localStorage.setItem('app_state_stable_v4', JSON.stringify(appState));
+            localStorage.setItem('app_state_stable_v2', JSON.stringify(appState));
             updateTimestamp();
         }
 
@@ -420,7 +420,7 @@
 
         // --- ARCHIVE ENGINE ---
         document.getElementById('btnExport').onclick = () => {
-            const dataStr = localStorage.getItem('app_state_stable_v4');
+            const dataStr = localStorage.getItem('app_state_stable_v2');
             if (!dataStr) {
                 alert('Gagal mengekspor: Tidak ada data aktif di dalam sistem.');
                 return;
@@ -510,7 +510,7 @@
 
         // --- GRAPHICS & CONTRAST ---
         function initTheme() {
-            const currentTheme = localStorage.getItem('theme') || 'dark';
+            const currentTheme = localStorage.getItem('theme_page2') || 'dark';
             if (currentTheme === 'dark') { htmlEl.classList.add('dark'); } 
             else { htmlEl.classList.remove('dark'); }
             updateThemeIcon();
@@ -524,7 +524,7 @@
 
         document.getElementById('themeToggle').onclick = () => {
             const isDark = htmlEl.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme_page2, isDark ? 'dark' : 'light');
             updateThemeIcon();
         };
 
